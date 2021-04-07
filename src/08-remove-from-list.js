@@ -53,6 +53,7 @@ function removeKFromList(/* l, k */) {
   //   const arr = l.filter((el) => el !== k);
   //   // console.log(arr);
   //   return arr;
+  throw new Error('Not implemented');
 }
 // removeKFromList([3, 1, 2, 3, 4, 5], 3);
 
