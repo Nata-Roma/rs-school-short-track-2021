@@ -13,15 +13,50 @@
 
 class Queue {
   constructor() {
+    this.tail = null;
+    this.head = null;
+    this.length = null;
     this.queue = [];
   }
 
+  class ListNode {
+    constructor(x) {
+      this.value = x;
+      this.next = null;
+    }
+  }
+  // ListNode(x) {
+  //   this.value = x;
+  //   this.next = null;
+  // }
+
+  convertArrayToList(arr) {
+    return arr.reverse().reduce((acc, cur) => {
+      if (acc) {
+        const node = new ListNode(cur);
+        node.next = acc;
+        return node;
+      }
+      return new ListNode(cur);
+    }, null);
+  }
+
   get size() {
-    return this.queue.length;
+    return this.length;
   }
 
   enqueue(element) {
-    this.queue.push(element);
+    if (!this.head) {
+      this.head = new this.ListNode(element);
+    } else {
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = new this.ListNode(element);
+    }
+    console.log(this.head);
+    // this.queue.push(element);
   }
 
   dequeue() {
