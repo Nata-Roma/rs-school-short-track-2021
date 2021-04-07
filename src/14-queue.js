@@ -19,30 +19,24 @@ class Queue {
     this.queue = [];
   }
 
-  class ListNode {
-    constructor(x) {
-      this.value = x;
-      this.next = null;
-    }
+  ListNode(x) {
+    this.value = x;
+    this.next = null;
   }
-  // ListNode(x) {
-  //   this.value = x;
-  //   this.next = null;
-  // }
 
   convertArrayToList(arr) {
     return arr.reverse().reduce((acc, cur) => {
       if (acc) {
-        const node = new ListNode(cur);
+        const node = new this.ListNode(cur);
         node.next = acc;
         return node;
       }
-      return new ListNode(cur);
+      return new this.ListNode(cur);
     }, null);
   }
 
   get size() {
-    return this.length;
+    return this.queue.length;
   }
 
   enqueue(element) {
